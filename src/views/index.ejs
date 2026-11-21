@@ -1,3 +1,4 @@
+<!-- Incluimos los fragmentos ejs de arriba -->
 <%- include("partials/head.ejs") %>
 <%- include("partials/header.ejs") %>
 
@@ -20,7 +21,7 @@
 
                     <p><%= producto.category === "clothes" ? "Indumentaria" : "Calzado" %> / Id: <%= producto.id %></p>
 
-                    <p><strong>$ <%= Number(producto.price).toLocaleString("es-AR") %></strong></p>
+                    <p><strong>$ <%= Number(producto.price).toLocaleString("es-AR") %></strong></p>  <!-- se muestra el precio del producto en negrita y con formato de moneda argentina -->
 
                     <% if (!producto.active) { %>
                         <p>(Inactivo)</p>
