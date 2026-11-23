@@ -1,0 +1,340 @@
+/*Estilos generales*/
+
+/* Los colores de toda la pagina. */
+:root {
+    --negro: #111;
+    --blanco: #fff;
+    --gris: #f1f1f1;
+    --gris-borde: #ccc;
+    --rojo: #c62828;
+    --verde: #2e7d32;
+}
+
+/* Con esto el ancho de las cajas incluye el padding y el borde, asi no se pasan del ancho que les ponemos */
+* {
+    box-sizing: border-box;
+}
+
+/* Fondo y letra de toda la pagina */
+body {
+    margin: 0;
+    background-color: var(--gris);
+    color: var(--negro);
+    font-family: Arial, sans-serif;
+}
+
+/* Cajita de los mensajes (errores y exitos) */
+.mensaje {
+    width: 100%;
+    margin: 0 auto 10px;
+    padding: 14px 20px;
+    background-color: var(--blanco);
+    border: 2px solid;
+    border-radius: 0;
+}
+
+.error {
+    color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+.exito {
+    color: var(--verde);
+    border-color: var(--verde);
+}
+
+.centrado {
+    text-align: center;
+}
+
+
+/* Header*/
+
+/* Estos tres son flex para poner todo en fila y centrado en vertical */
+header, #logo, .lista-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* El header tiene el logo a la izquierda y el menu a la derecha */
+header {
+    justify-content: space-between;
+    flex-wrap: wrap; /* en pantallas chicas el menu baja abajo */
+    padding: 10px 40px;
+    background-color: var(--negro);
+}
+
+/* flex: 1 hace q el logo y el titulo ocupen TODO el espacio q sobra entre el borde izquierdo y el menu */
+#logo {
+    flex: 1;
+}
+
+.logo-container {
+    width: 50px;
+}
+
+/* La imagen ocupa el ancho de su caja (50px) pq sin esto se ve gigante */
+.logo-container img {
+    display: block;
+    width: 100%;
+}
+
+/* el titulo tambien ocupa todo el espacio que sobra (flex: 1) y con text-align lo centramos adentro de ese espacio negro */
+.logo-titulo {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: 4px; /* separa las letrass */
+    text-transform: uppercase;
+    color: var(--blanco);
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.lista-nav {
+    flex-wrap: wrap; /* si no entran los links, bajan a la linea de abajo */
+    justify-content: center;
+    margin: 0;
+}
+
+.lista-nav li {
+    margin: 0 0 0 22px; /* espacio a la izquierda de cada link */
+}
+
+.lista-nav a {
+    color: var(--blanco);
+    font-size: .9rem;
+    text-transform: uppercase;
+    text-decoration: none; /* saca el subrayado */
+}
+
+.lista-nav a:hover {
+    text-decoration: underline; /* aparece al pasar el mouse */
+}
+
+/* El logout es un input submit adentro de un form, le damos borde blanco para q se vea sobre el negro */
+#logout-form {
+    margin: 0 0 0 22px;
+}
+
+#logout-form input[type="submit"] {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--blanco);
+    color: var(--blanco);
+    font-size: .8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/*Main*/
+
+/* El contenido de cada pagina: centrado y con un maximo de ancho */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/*Formularios*/
+
+/* Cada formulario va en una caja blanca con borde negro */
+.getIdProduct-container,
+.createProduct-container,
+.createUser-container,
+.updateProduct-container {
+    width: 500px;
+    max-width: 100%; /* en pantallas chicas no se pasa del ancho */
+    margin: 0 auto 30px;
+    padding: 25px;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+
+/* En crear hay dos formularios: este div los pone uno al lado del otro */
+#post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.createProduct-container,
+.createUser-container {
+    width: 48%;
+    min-width: 300px;
+}
+
+/* Titulo de cada formulario */
+main h2,
+.login-container h3 {
+    margin: 0 0 20px;
+}
+
+/* Texto arriba de cada campo */
+main label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: .9rem;
+}
+
+/* Los campos (inputs y selects) */
+main input,
+main select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: var(--blanco);
+    border: 2px solid var(--gris-borde);
+    color: var(--negro);
+    font-size: 1rem;
+}
+
+/* Cuando haces click en un campo se le pone el borde negro */
+main input:focus,
+main select:focus {
+    border-color: var(--negro);
+    outline: none;
+}
+
+/*Botones*/
+
+/* Botones: negros con letra blanca.
+   El input[type="submit"] elige solo los botones de enviar.
+   Va despues de "main input" para pisarle el estilo de los campos */
+main button,
+main input[type="submit"] {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--negro);
+    border: 2px solid var(--negro);
+    color: var(--blanco);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* El boton de eliminar es rojo con auto en el ancho no se estira (queda al tamano de su texto) */
+#deleteProduct-button {
+    width: auto;
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+#updateProduct-button {
+    width: auto;
+}
+
+/*Cards*/
+
+/* Las cards van en fila y cuando no entran bajan a la linea de abajo */
+#contenedor-productos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-producto {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin: 10px;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+
+/* Foto del producto con todas bien centradas y con la misma altura */
+.card-img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 180px;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+.card-producto h4 {
+    margin: 10px 12px 0;
+    padding-top: 10px;
+    border-top: 2px solid var(--negro); /* linea q separa la foto del nombre */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.card-producto p {
+    margin: 4px 12px 8px;
+    font-size: .85rem;
+}
+
+/* Los productos inactivos se ven medio transparentes */
+.card-inactivo {
+    opacity: .5;
+}
+
+/*Lista producto (cuando se consulta un producto por id en consultar, modificar y eliminar)*/
+
+.lista-container {
+    width: 95%;
+    margin: 0;
+}
+
+.lista-producto {
+    display: flex;
+    flex-wrap: wrap; /* si no entra, baja a la linea de abajo */
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+
+.lista-producto_img {
+    width: 100px;
+}
+
+.lista-producto p {
+    margin: 0;
+}
+
+/*Login*/
+
+.login-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 60px auto;
+    padding: 25px;
+    background-color: var(--blanco);
+    border: 2px solid var(--negro);
+}
+
+/* Logo arriba del formulario (el <img> esta en login.ejs) */
+.login-logo {
+    display: block;
+    width: 90px;
+    margin: 0 auto 15px;
+}
+
+#mensajes {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*Footer*/
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--negro);
+    text-align: center;
+    font-size: .85rem;
+}
+
+footer p {
+    margin: 0;
+    color: var(--blanco);
+}
