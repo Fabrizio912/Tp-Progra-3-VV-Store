@@ -1,0 +1,8 @@
+//Rutas de ventas
+import { Router } from "express";
+import { createSale } from "../controllers/sale.controllers.js";
+const router = Router();
+
+router.post("/", createSale);
+
+export default router;
