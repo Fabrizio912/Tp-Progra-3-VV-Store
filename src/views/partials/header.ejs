@@ -1,7 +1,7 @@
 <header>
     <section id="logo">
         <div class="logo-container">
-            <img src="/img/logo.png" class="logo" alt="Logo de la tienda">
+            <img src="/img/logo.png" class="logo" alt="Logo de VV Store">
         </div>
 
         <h2 class="logo-titulo">VV Store</h2>
@@ -14,6 +14,12 @@
             <li><a href="/dashboard/crear">Crear</a></li>
             <li><a href="/dashboard/modificar">Modificar</a></li>
             <li><a href="/dashboard/eliminar">Eliminar</a></li>
+            <li>
+                <!-- Formulario para hacer logout y cerrar la sesion -->
+                <form action="/logout" method="POST" id="logout-form">
+                    <input type="submit" value="Logout">
+                </form>
+            </li>
         </ul>
     </nav>
 </header>
